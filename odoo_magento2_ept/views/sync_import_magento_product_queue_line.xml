@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_magento_product_data_queue_line_ept_form"
+            model="ir.ui.view">
+        <field name="name">sync.import.product.queue.line.form</field>
+        <field name="model">sync.import.magento.product.queue.line</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0">
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,done"/>
+                </header>
+                <field name="product_sku" invisible="1"/>
+                <sheet>
+                    <widget name="web_ribbon" text="Imported"
+                            attrs="{'invisible': [('state','!=','done')]}"/>
+
+                    <group>
+                        <group>
+                            <field name="magento_instance_id"/>
+                            <field name="product_sku"/>
+                        </group>
+                        <group>
+                            <field name="sync_import_magento_product_queue_id"/>
+                            <field name="write_date" string="Last Updated On"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="log" string="Log">
+                            <field name="import_product_common_log_lines_ids">
+                                <tree create="false" editable="bottom">
+                                    <field name="message"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="data" string="Product Data">
+                            <field name="product_data"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

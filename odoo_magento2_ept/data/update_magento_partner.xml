@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <function name="update_partner_in_magento_res_partner" model="res.partner"/>
+        <function name="update_magento_order_page_count_users_vise" model="magento.api.request.page"/>
+    </data>
+</odoo>

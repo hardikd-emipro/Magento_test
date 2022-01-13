@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    <t t-name="emipro_in_app_notify">
+        <div id="notify_ept">
+            <div class="in_app_notification_popup">
+                <div class="in_app_header">
+                    <img id="download"
+                         src="/common_connector_library/static/src/img/download.svg"/>
+                    New Update Available
+                    <img id="hide_popup" src="/common_connector_library/static/src/img/hide.svg"/>
+                    <img id="close_popup" src="/common_connector_library/static/src/img/close.svg"/>
+                </div>
+                <div class="in_app_content">
+                    <t t-if="updates">
+                        <t t-foreach="updates" t-as="update">
+                            <h5 class="app_version_ept" t-esc="update.version"/>
+                            <ul>
+                                <li t-raw="update.detail"/>
+                            </ul>
+                        </t>
+                    </t>
+                </div>
+                <div class="in_app_footer">
+                    <button type="button" class="btn btn-primary update_button">Upgrade App</button>
+                    <button type="button" class="btn btn-primary read_more">Read More</button>
+                </div>
+            </div>
+        </div>
+        <div class="hide_notification">
+            <img class="toggle_image" src="/common_connector_library/static/src/img/hide.svg"/>
+        </div>
+    </t>
+</template>
